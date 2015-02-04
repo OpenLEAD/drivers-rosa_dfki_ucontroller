@@ -1,0 +1,19 @@
+<package>
+  <description brief="Driver for the embedded electronics from DFKI on ROSA project">
+  Driver for reading the uC from the embedded electronics from DFKI ant ROSA project needs. It parses Inclination, Pressure and Water Intrusion from the uC, but also implement digital output for the inductive sensors.
+  </description>
+  <author>Eduardo Elael/elael2@gmail.com</author>
+  <license></license>
+  <url>http://</url>
+  <logo>http://</logo>
+  <depend package="base/cmake" />
+  <!--
+   To add any dependencies use the depend tag
+  <depend package="dummy-dependency-0" />
+	...
+  <depend package="dummy-dependency-n-1" />
+  <depend package="dummy-dependency-n" />
+  -->
+  <depend package="base/types" />
+  <depend package="drivers/iodrivers_base" />
+</package>
