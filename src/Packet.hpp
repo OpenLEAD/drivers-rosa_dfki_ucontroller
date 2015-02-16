@@ -3,6 +3,7 @@
 
 #include <boost/cstdint.hpp>
 #include <base/Pressure.hpp>
+#include <base/Eigen.hpp>
 #include <stdexcept>
 
 namespace rosa_dfki_ucontroller
@@ -32,6 +33,7 @@ namespace rosa_dfki_ucontroller
         float getAngleX() const {return angle_x;};
         float getAngleY() const {return angle_y;};
         base::Pressure getPressure() const {return base::Pressure::fromBar(pressure);};
+        base::Vector3d getAcceleration() const {return acceleration;}
 
         Packet();
         void parse(byte const* buffer);
@@ -39,6 +41,7 @@ namespace rosa_dfki_ucontroller
 
         bool con21, con22, con23, con31, water1, water2;
         float angle_x, angle_y, pressure;
+        base::Vector3d acceleration;
 
     };
 

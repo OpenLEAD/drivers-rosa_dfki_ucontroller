@@ -20,9 +20,9 @@ namespace boost {
 
 byte marshalled[18] = { 0x44, 0x3A, //HEADERS
                         0x0F, 0xDA, //Pressure (4.259021897 bar)
-                        0x00, 0x00, //Acceleration X 
-                        0x00, 0x00, //Acceleration Y
-                        0x00, 0x00, //Acceleration Z
+                        0xAB, 0xEA, //Acceleration X 
+                        0xAA, 0x2A, //Acceleration Y
+                        0xFF, 0x3F, //Acceleration Z
                         0x74, 0x05, //Angle X (3.409035409 V)
                         0x52, 0x0F, //Angle Y (9.577533578 V)
                         0x00, 0x00, //Angle Z
@@ -64,6 +64,13 @@ BOOST_AUTO_TEST_CASE(Packet_getWater1)
 BOOST_AUTO_TEST_CASE(Packet_getWater2)
 {
     BOOST_CHECK(!packet.getWater2());
+}
+
+BOOST_AUTO_TEST_CASE(Packet_getAcceleration)
+{
+    base::Vector3d refvector(-1,2,3);
+    base::Vector3d delta = refvector - packet.getAcceleration();
+    BOOST_CHECK_SMALL(delta.norm(), 0.00037);
 }
 
 BOOST_AUTO_TEST_CASE(Packet_getAngleX)
