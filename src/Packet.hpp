@@ -38,6 +38,8 @@ namespace rosa_dfki_ucontroller
         Packet();
         void parse(byte const* buffer);
     protected:
+        float unsignedMerge(byte const* buffer, const byte LSB, const byte MSB);
+        float signedMerge(byte const* buffer, const byte LSB, const byte MSB);
 
         bool con21, con22, con23, con31, water1, water2;
         float angle_x, angle_y, pressure;
