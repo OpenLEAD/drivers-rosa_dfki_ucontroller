@@ -38,6 +38,7 @@ namespace rosa_dfki_ucontroller
         Packet();
         void parse(byte const* buffer);
     protected:
+        const float g = 9.80665;
         float unsignedMerge(byte const* buffer, const byte LSB, const byte MSB);
         float signedMerge(byte const* buffer, const byte LSB, const byte MSB);
 

@@ -69,8 +69,9 @@ BOOST_AUTO_TEST_CASE(Packet_getWater2)
 BOOST_AUTO_TEST_CASE(Packet_getAcceleration)
 {
     base::Vector3d refvector(-1,2,3);
+    refvector *= 9.80665;
     base::Vector3d delta = refvector - packet.getAcceleration();
-    BOOST_CHECK_SMALL(delta.norm(), 0.00037);
+    BOOST_CHECK_SMALL(delta.norm(), 0.00037*9.80665);
 }
 
 BOOST_AUTO_TEST_CASE(Packet_getAngleX)

@@ -50,13 +50,13 @@ void Packet::parse(byte const* buffer){
     angle_y *= (10.0f/(float)((1<<12) - 1));
   
     float acceleration_x = signedMerge(buffer, 4, 5);  
-    acceleration_x *= (6.0f/(float)((1<<15) - 1));
+    acceleration_x *= (6.0f*g/(float)((1<<15) - 1));
 
     float acceleration_y = signedMerge(buffer, 6, 7);  
-    acceleration_y *= (6.0f/(float)((1<<15) - 1));
+    acceleration_y *= (6.0f*g/(float)((1<<15) - 1));
 
     float acceleration_z = signedMerge(buffer, 8, 9);  
-    acceleration_z *= (6.0f/(float)((1<<15) - 1));
+    acceleration_z *= (6.0f*g/(float)((1<<15) - 1));
 
     std::bitset<8> switch_water_bitfield(buffer[16]);
     water1 = switch_water_bitfield[0];
