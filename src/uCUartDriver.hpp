@@ -10,7 +10,7 @@ namespace rosa_dfki_ucontroller
 {
 	class uCUartDriver: public iodrivers_base::Driver 
 	{
-		public: 
+	public: 
             uCUartDriver();
             Packet getPacket();
 

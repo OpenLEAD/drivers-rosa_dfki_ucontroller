@@ -11,8 +11,8 @@ namespace rosa_dfki_ucontroller
     }
 
     Packet uCUartDriver::getPacket(){
-        byte buffer[Packet::PACKET_SIZE];
-        iodrivers_base::Driver::readPacket(buffer,Packet::PACKET_SIZE);
+        byte buffer[Packet::PACKET_SIZE * 3];
+        iodrivers_base::Driver::readPacket(buffer,Packet::PACKET_SIZE * 3);
         Packet packet;
         packet.parse(buffer);
         return packet;
